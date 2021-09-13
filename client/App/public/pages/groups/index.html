@@ -1,0 +1,46 @@
+<template name="publicPagesGroups">
+  {{#let _groups=(state.get 'groups')}}
+
+  <div class="container py-4">
+    <div class="d-flex">
+      <h4>Sınıflar</h4>
+    </div>
+
+    <div class="row g-3">
+      <div class="col-12">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Group Name</th>
+              <th scope="col">Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each _groups}}
+            <tr>
+              <th scope="row">{{_id}}</th>
+              <td>{{name}}</td>
+              <td>{{description}}</td>
+              <td>
+                <a
+                  class="btn btn-success btn-sm float-end"
+                  href="/students/{{_id}}"
+                  >Sınıfa Git</a
+                >
+                <a
+                  class="btn btn-warning btn-sm float-end mx-2"
+                  href="/attendances/{{_id}}"
+                  >Yoklama</a
+                >
+              </td>
+            </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  {{/let}}
+</template>
