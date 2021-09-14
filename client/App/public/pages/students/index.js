@@ -54,19 +54,6 @@ Template.publicPagesStudents.events({
     console.log(date); //burda alınan değer string
     template.state.set("startDate", new Date(date)); //string i
   },
-
-  // "submit #brdForm": function (event, template) {
-  //   event.preventDefault();
-
-  //   console.log(template.students);
-
-  //   const attendances = template.state.get("attendances"); //students'ı çekiyoruz
-
-  //   const obj = {
-  //     getList: [], //dizi oluşturduk
-  //   };
-  //   console.log(obj);
-  // },
 });
 
 Template.publicPagesStudents.helpers({
