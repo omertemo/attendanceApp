@@ -12,7 +12,7 @@ new ValidatedMethod({
     this.unblock();
 
     const { options } = data;
-
+    console.log(data);
     return Fetch(Students, {}, options, "students");
   },
 });

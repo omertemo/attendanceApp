@@ -1,8 +1,14 @@
 <template name="publicPagesAttendanceOriginal">
-  {{#let _students=(state.get 'students')}}
+  {{#let _attendances=(state.get 'attendances')}}
   <div class="container">
     <div class="d-flex justify-content-between">
-      <h1>students</h1>
+      <h1>Yoklaması alınmış şekli</h1>
+      <div class="ms-auto">
+        <div class="form-floating mb-3">
+          <input type="date" class="form-control" id="brdDate" />
+          <label for="brdDate"></label>
+        </div>
+      </div>
     </div>
 
     <div class="row g-2">
@@ -10,21 +16,17 @@
         <table class="table">
           <thead>
             <tr>
-              <th scope="col">#</th>
-              <th scope="col">First Name</th>
-              <th scope="col">Last Name</th>
-              <th scope="col">Number</th>
+              <th scope="col">studentId</th>
               <th scope="col">GroupId</th>
+              <th scope="col">status</th>
             </tr>
           </thead>
           <tbody>
-            {{#each _students}}
+            {{#each _attendances}}
             <tr>
-              <th scope="row">{{_id}}</th>
-              <td>{{firstName}}</td>
-              <td>{{lastName}}</td>
-              <td>{{number}}</td>
-              <td>{{groupId}}</td>
+              <th scope="row">{{studentId}}</th>
+              <td>{{GroupId}}</td>
+              <td>{{status}}</td>
             </tr>
             {{/each}}
           </tbody>

@@ -1,18 +1,18 @@
 import { FlowRouter } from "meteor/ostrio:flow-router-extra";
 
-Template.publicPagesStudents.onCreated(function () {
+Template.publicPagesAttendanceOriginal.onCreated(function () {
   this.state = new ReactiveDict(null, {
-    students: [],
+    attendances: [],
     notFound: false,
   });
   this.filtering = new ReactiveDict(null, {});
 });
 
-Template.publicPagesStudents.onRendered(function () {
+Template.publicPagesAttendanceOriginal.onRendered(function () {
   const self = this;
 
   this.autorun(function () {
-    AppUtil.refreshTokens.get("students");
+    AppUtil.refreshTokens.get("attendances");
     const filtering = self.filtering.all();
     const groupId = FlowRouter.getParam("groupId");
 
@@ -28,14 +28,14 @@ Template.publicPagesStudents.onRendered(function () {
       },
     };
 
-    Meteor.call("students.list", obj, function (error, result) {
+    Meteor.call("attendances.list", obj, function (error, result) {
       if (error) {
         console.log("error", error);
       }
       if (result) {
         console.log(result);
 
-        self.state.set("students", result.students);
+        self.state.set("attendances", result.attendances);
       }
     });
   });
